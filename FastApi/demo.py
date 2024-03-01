@@ -3,7 +3,7 @@ from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from pydantic import BaseModel
 
-app = FastAPI()
+app=FastAPI()
 
 demo_db = {
     "anant": {
@@ -19,6 +19,8 @@ demo_db = {
 }
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+prompt_value="You're an esteemed college professor tasked with crafting {type} questions based on the {content} provided."
 
 class Prompt(BaseModel):
     type: str
